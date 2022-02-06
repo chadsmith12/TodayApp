@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C760B58C27AF641A004B9D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B58B27AF641A004B9D9E /* AppDelegate.swift */; };
 		C760B58E27AF641A004B9D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B58D27AF641A004B9D9E /* SceneDelegate.swift */; };
-		C760B59027AF641A004B9D9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B58F27AF641A004B9D9E /* ViewController.swift */; };
+		C760B59027AF641A004B9D9E /* ReminderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B58F27AF641A004B9D9E /* ReminderListViewController.swift */; };
 		C760B59327AF641A004B9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760B59127AF641A004B9D9E /* Main.storyboard */; };
 		C760B59527AF641C004B9D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760B59427AF641C004B9D9E /* Assets.xcassets */; };
 		C760B59827AF641C004B9D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760B59627AF641C004B9D9E /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		C760B58827AF641A004B9D9E /* TodayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C760B58B27AF641A004B9D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C760B58D27AF641A004B9D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C760B58F27AF641A004B9D9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C760B58F27AF641A004B9D9E /* ReminderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewController.swift; sourceTree = "<group>"; };
 		C760B59227AF641A004B9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C760B59427AF641C004B9D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C760B59727AF641C004B9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,12 +60,10 @@
 		C760B58A27AF641A004B9D9E /* TodayApp */ = {
 			isa = PBXGroup;
 			children = (
-				C760B5A227AF87EC004B9D9E /* ViewCells */,
+				C760B5A527AF9EE3004B9D9E /* ReminderList */,
 				C760B59F27AF6C9A004B9D9E /* Models */,
 				C760B58B27AF641A004B9D9E /* AppDelegate.swift */,
 				C760B58D27AF641A004B9D9E /* SceneDelegate.swift */,
-				C760B58F27AF641A004B9D9E /* ViewController.swift */,
-				C760B59127AF641A004B9D9E /* Main.storyboard */,
 				C760B59427AF641C004B9D9E /* Assets.xcassets */,
 				C760B59627AF641C004B9D9E /* LaunchScreen.storyboard */,
 				C760B59927AF641C004B9D9E /* Info.plist */,
@@ -87,6 +85,16 @@
 				C760B5A327AF8863004B9D9E /* ReminderListCell.swift */,
 			);
 			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		C760B5A527AF9EE3004B9D9E /* ReminderList */ = {
+			isa = PBXGroup;
+			children = (
+				C760B58F27AF641A004B9D9E /* ReminderListViewController.swift */,
+				C760B59127AF641A004B9D9E /* Main.storyboard */,
+				C760B5A227AF87EC004B9D9E /* ViewCells */,
+			);
+			path = ReminderList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C760B59027AF641A004B9D9E /* ViewController.swift in Sources */,
+				C760B59027AF641A004B9D9E /* ReminderListViewController.swift in Sources */,
 				C760B5A427AF8863004B9D9E /* ReminderListCell.swift in Sources */,
 				C760B58C27AF641A004B9D9E /* AppDelegate.swift in Sources */,
 				C760B58E27AF641A004B9D9E /* SceneDelegate.swift in Sources */,
