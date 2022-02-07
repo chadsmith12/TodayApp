@@ -24,7 +24,7 @@ class ReminderListCell: UITableViewCell {
         titleLabel.text = title
         dateLabel.text = dateText
         let image = isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
-        doneButton.setImage(image, for: .normal)
+        doneButton.setBackgroundImage(image, for: .normal)
         self.doneButtonAction = doneActionButton
     }
 }
