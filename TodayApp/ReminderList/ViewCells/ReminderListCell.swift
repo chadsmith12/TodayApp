@@ -14,9 +14,17 @@ class ReminderListCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var doneButton: UIButton!
     
-    var doneButtonAction: DoneButtonAction?
+    private var doneButtonAction: DoneButtonAction?
     
     @IBAction func doneButtonTriggered(_ sender: UIButton) {
         doneButtonAction?()
+    }
+    
+    func configure(title: String, dateText: String, isDone: Bool, doneActionButton: @escaping DoneButtonAction) {
+        titleLabel.text = title
+        dateLabel.text = dateText
+        let image = isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
+        doneButton.setImage(image, for: .normal)
+        self.doneButtonAction = doneActionButton
     }
 }

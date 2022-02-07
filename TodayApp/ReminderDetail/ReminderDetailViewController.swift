@@ -8,7 +8,7 @@
 import UIKit
 
 class ReminderDetailViewController: UITableViewController {
-    enum ReminderRow: Int, CaseIterable {
+    private enum ReminderRow: Int, CaseIterable {
         case title
         case date
         case time
@@ -49,7 +49,7 @@ class ReminderDetailViewController: UITableViewController {
 }
 
 extension ReminderDetailViewController  {
-    static let reminderDetailCellIdentifier = "ReminderDetailCell"
+    private static let reminderDetailCellIdentifier = "ReminderDetailCell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ReminderRow.allCases.count
