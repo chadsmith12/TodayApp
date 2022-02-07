@@ -14,14 +14,32 @@ class ReminderViewDetailDataSource: NSObject {
         case time
         case notes
         
+        static let timeFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            formatter.dateStyle = .none
+            
+            return formatter
+        }()
+        
+        static let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .none
+            formatter.dateStyle = .long
+            
+            return formatter
+        }()
+        
         func displayText(for reminder: Reminder?) -> String? {
             switch self {
             case .title:
                 return reminder?.title
             case .date:
-                return reminder?.dueDate.description
+                guard let date = reminder?.dueDate else { return nil }
+                return Self.dateFormatter.string(from: date)
             case .time:
-                return reminder?.dueDate.description
+                guard let time = reminder?.dueDate else { return nil }
+                return Self.timeFormatter.string(from: time)
             case .notes:
                 return reminder?.notes
             }
