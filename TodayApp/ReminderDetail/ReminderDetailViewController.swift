@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReminderDetailViewController: UITableViewController {    
+class ReminderDetailViewController: UITableViewController {
     private var reminder: Reminder?
     private var detailViewDataSource: ReminderViewDetailDataSource?
     
