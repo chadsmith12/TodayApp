@@ -114,4 +114,8 @@ extension ReminderDetailEditDataSource: UITableViewDataSource  {
         
         return section.displayText
     }
+    
+    func  tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
