@@ -8,9 +8,23 @@
 import UIKit
 
 class EditDateCell: UITableViewCell {
-    @IBOutlet var datePicker: UIDatePicker!
+    typealias DateChangeAction = (Date) -> Void
     
-    func configure(date: Date) {
+    @IBOutlet var datePicker: UIDatePicker!
+    private var dateChangeAction: DateChangeAction?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+    }
+    
+    func configure(date: Date, changeAction: @escaping  DateChangeAction) {
         self.datePicker.date = date
+        self.dateChangeAction = changeAction
+    }
+    
+    @objc
+    func dateChanged(_ sender: UIDatePicker) {
+        self.dateChangeAction?(sender.date)
     }
 }

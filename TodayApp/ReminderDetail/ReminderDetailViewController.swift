@@ -8,11 +8,16 @@
 import UIKit
 
 class ReminderDetailViewController: UITableViewController {
-    private var reminder: Reminder?
-    private var dataSource: UITableViewDataSource?
+    typealias ReminderChangeAction = (Reminder) -> Void
     
-    func configure(with reminder: Reminder) {
+    private var reminder: Reminder?
+    private var tempReminder: Reminder?
+    private var dataSource: UITableViewDataSource?
+    private var reminderChangeAction: ReminderChangeAction?
+    
+    func configure(with reminder: Reminder, changeAction: @escaping ReminderChangeAction) {
         self.reminder = reminder
+        self.reminderChangeAction = changeAction
     }
     
     override func viewDidLoad() {
@@ -29,12 +34,22 @@ class ReminderDetailViewController: UITableViewController {
         }
         
         if editing  {
-            self.dataSource = ReminderDetailEditDataSource(reminder: reminder)
+            self.dataSource = ReminderDetailEditDataSource(reminder: reminder) { reminder in
+                self.tempReminder = reminder
+                self.editButtonItem.isEnabled = true
+            }
             navigationItem.title = NSLocalizedString("Edit Reminder", comment: "edit reminder nav item")
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTrigger))
         }
         else {
-            self.dataSource = ReminderViewDetailDataSource(reminder: reminder)
+            if let tempReminder = tempReminder {
+                self.reminder = tempReminder
+                self.tempReminder = nil
+                self.reminderChangeAction?(tempReminder)
+                self.dataSource = ReminderViewDetailDataSource(reminder: tempReminder)
+            } else {
+                self.dataSource = ReminderViewDetailDataSource(reminder: reminder)
+            }
             navigationItem.title = NSLocalizedString("View Reminder", comment: "view reminder nav item")
             navigationItem.leftBarButtonItem = nil
             editButtonItem.isEnabled = true
