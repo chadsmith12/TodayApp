@@ -9,12 +9,22 @@ import UIKit
 
 class ReminderListViewController: UITableViewController {
     private static let showReminderDetailSegueIdentifier = "ShowReminderDetailSegue"
+    private static let mainStoryboardIdentifier = "Main"
+    private static let detailViewControllerIdentifier = "ReminderDetailViewController"
+    
     private var reminderListDataSource: ReminderListDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reminderListDataSource = ReminderListDataSource()
         tableView.dataSource =  reminderListDataSource
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let navigationController = navigationController, navigationController.isToolbarHidden {
+            navigationController.setToolbarHidden(false, animated: animated)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -26,10 +36,25 @@ class ReminderListViewController: UITableViewController {
             guard let reminder = reminderListDataSource?.reminder(at: rowIndex) else {
                 fatalError("Couldn't find datasource for reminder list")
             }
-            destination.configure(with: reminder)  { reminder in
+            destination.configure(with: reminder, editAction: { reminder in
                 self.reminderListDataSource?.update(reminder, at: rowIndex)
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            }
+            })
         }
+    }
+    @IBAction func addButtonTriggered(_ sender: UIBarButtonItem) {
+        addReminder()
+    }
+    
+    private func addReminder() {
+        let storyboard = UIStoryboard(name: Self.mainStoryboardIdentifier, bundle: nil)
+        let detailViewControler = storyboard.instantiateViewController(withIdentifier: Self.detailViewControllerIdentifier) as! ReminderDetailViewController
+        let reminder = Reminder(title: "New Reminder", dueDate: Date())
+        detailViewControler.configure(with: reminder, isNew: true, addAction: { reminder in
+            self.reminderListDataSource?.add(reminder)
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        })
+        let navigationController = UINavigationController(rootViewController: detailViewControler)
+        present(navigationController, animated: true, completion: nil)
     }
 }
