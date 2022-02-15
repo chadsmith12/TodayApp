@@ -43,7 +43,7 @@ class ReminderListViewController: UITableViewController {
             }
             destination.configure(with: reminder, editAction: { reminder in
                 self.reminderListDataSource?.update(reminder, at: rowIndex)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadData()
             })
         }
     }
@@ -59,10 +59,11 @@ class ReminderListViewController: UITableViewController {
     private func addReminder() {
         let storyboard = UIStoryboard(name: Self.mainStoryboardIdentifier, bundle: nil)
         let detailViewControler = storyboard.instantiateViewController(withIdentifier: Self.detailViewControllerIdentifier) as! ReminderDetailViewController
-        let reminder = Reminder(title: "New Reminder", dueDate: Date())
+        let reminder = Reminder(id: UUID().uuidString, title: "New Reminder", dueDate: Date())
         detailViewControler.configure(with: reminder, isNew: true, addAction: { reminder in
-            self.reminderListDataSource?.add(reminder)
-            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            if let index = self.reminderListDataSource?.add(reminder) {
+                self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
         })
         let navigationController = UINavigationController(rootViewController: detailViewControler)
         present(navigationController, animated: true, completion: nil)
