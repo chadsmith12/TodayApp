@@ -21,6 +21,7 @@ class EditTitleCell: UITableViewCell {
     
     func configure(title: String, changeAction: @escaping TitleChangeAction) {
         self.titleTextField.text = title
+        self.titleChangeAction = changeAction
     }
 }
 
