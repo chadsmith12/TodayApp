@@ -13,6 +13,11 @@ class ReminderListViewController: UITableViewController {
     private static let detailViewControllerIdentifier = "ReminderDetailViewController"
     
     private var reminderListDataSource: ReminderListDataSource?
+    private var filter: ReminderListDataSource.Filter {
+        return ReminderListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .today
+    }
+    
+    @IBOutlet var filterSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +49,11 @@ class ReminderListViewController: UITableViewController {
     }
     @IBAction func addButtonTriggered(_ sender: UIBarButtonItem) {
         addReminder()
+    }
+    
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        reminderListDataSource?.filter = filter
+        tableView.reloadData()
     }
     
     private func addReminder() {
