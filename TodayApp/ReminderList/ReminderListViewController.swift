@@ -47,6 +47,7 @@ class ReminderListViewController: UITableViewController {
             })
         }
     }
+    
     @IBAction func addButtonTriggered(_ sender: UIBarButtonItem) {
         addReminder()
     }
