@@ -15,9 +15,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="RAa-Zn-E0f" userLabel="Progress Header View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsF-BV-2GD" userLabel="ProgressContainerView">
+                                    <rect key="frame" x="62" y="62" width="290" height="290"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iu0-4J-6ll" userLabel="Percent Complete View">
+                                            <rect key="frame" x="0.0" y="144" width="290" height="146"/>
+                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="146" id="JZ0-mJ-NIc"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j49-wf-16v" userLabel="Percent Incomplete View">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="144"/>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="iu0-4J-6ll" secondAttribute="trailing" id="B1R-L3-Jww"/>
+                                        <constraint firstItem="j49-wf-16v" firstAttribute="leading" secondItem="NsF-BV-2GD" secondAttribute="leading" id="LNO-Ho-Ha8"/>
+                                        <constraint firstItem="iu0-4J-6ll" firstAttribute="leading" secondItem="NsF-BV-2GD" secondAttribute="leading" id="Rve-1U-9gR"/>
+                                        <constraint firstItem="iu0-4J-6ll" firstAttribute="top" secondItem="j49-wf-16v" secondAttribute="bottom" id="agT-bX-S0l"/>
+                                        <constraint firstAttribute="trailing" secondItem="j49-wf-16v" secondAttribute="trailing" id="ajF-l9-wHv"/>
+                                        <constraint firstAttribute="bottom" secondItem="iu0-4J-6ll" secondAttribute="bottom" id="mXl-ku-dIj"/>
+                                        <constraint firstItem="j49-wf-16v" firstAttribute="top" secondItem="NsF-BV-2GD" secondAttribute="top" id="wvi-HE-DO1"/>
+                                        <constraint firstAttribute="width" secondItem="NsF-BV-2GD" secondAttribute="height" multiplier="1:1" id="ypY-l5-rBd"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <constraints>
+                                <constraint firstItem="NsF-BV-2GD" firstAttribute="width" secondItem="RAa-Zn-E0f" secondAttribute="width" multiplier="0.7" id="2lW-Mk-BJJ"/>
+                                <constraint firstItem="NsF-BV-2GD" firstAttribute="centerY" secondItem="RAa-Zn-E0f" secondAttribute="centerY" id="en0-c1-ZxY"/>
+                                <constraint firstItem="NsF-BV-2GD" firstAttribute="centerX" secondItem="RAa-Zn-E0f" secondAttribute="centerX" id="vmR-Ao-8yu"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReminderListCell" rowHeight="99" id="DVD-So-o5Z" customClass="ReminderListCell" customModule="TodayApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="99"/>
+                                <rect key="frame" x="0.0" y="458.5" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVD-So-o5Z" id="eWf-Of-cqA">
                                     <rect key="frame" x="0.0" y="0.0" width="385.5" height="99"/>
@@ -82,7 +121,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="sbl-kB-WVU">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Kaj-iP-qGO">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Kaj-iP-qGO">
                             <rect key="frame" x="108.5" y="5.5" width="197" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -98,11 +137,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filterSegmentedControl" destination="Kaj-iP-qGO" id="ZZq-Ks-CNP"/>
+                        <outlet property="percentCompleteHeightConstraint" destination="JZ0-mJ-NIc" id="i37-cO-7Ta"/>
+                        <outlet property="percentCompleteView" destination="iu0-4J-6ll" id="4RG-uK-lMy"/>
+                        <outlet property="percentIncompleteView" destination="j49-wf-16v" id="B66-pz-5dl"/>
+                        <outlet property="progressContainerView" destination="NsF-BV-2GD" id="9k9-o4-9IG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIN-Gq-BFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642.02898550724638" y="39.508928571428569"/>
+            <point key="canvasLocation" x="640.57971014492762" y="39.508928571428569"/>
         </scene>
         <!--View Reminder-->
         <scene sceneID="vsF-je-Jyw">
@@ -248,6 +291,15 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
