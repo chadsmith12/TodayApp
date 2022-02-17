@@ -25,7 +25,7 @@ class ReminderListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reminderListDataSource = ReminderListDataSource(reminderCompletedAction: onReminderComplete, reminderDeletedAction: onReminderDeleted)
+        reminderListDataSource = ReminderListDataSource(reminderCompletedAction: onReminderComplete, reminderDeletedAction: onReminderDeleted, remindersChangedAction: onRemindersChanged)
         tableView.dataSource =  reminderListDataSource
     }
     
@@ -100,12 +100,23 @@ class ReminderListViewController: UITableViewController {
     }
     
     private func onReminderComplete(for at: Int) {
-        self.tableView.reloadRows(at: [IndexPath(row: at, section: 0)], with: .automatic)
-        self.refreshProgressView()
+        DispatchQueue.main.async {
+            self.tableView.reloadRows(at: [IndexPath(row: at, section: 0)], with: .automatic)
+            self.refreshProgressView()
+        }
     }
     
     private func onReminderDeleted() {
-        self.refreshProgressView()
+        DispatchQueue.main.async {
+            self.refreshProgressView()
+        }
+    }
+    
+    private func onRemindersChanged() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshProgressView()
+        }
     }
     
     private func refreshBackground() {
