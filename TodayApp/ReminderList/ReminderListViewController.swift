@@ -61,6 +61,17 @@ class ReminderListViewController: UITableViewController {
                             self.tableView.reloadData()
                             self.refreshProgressView()
                         }
+                    } else {
+                        DispatchQueue.main.async {
+                            let alertTitle = NSLocalizedString("Can't Update Reminder", comment: "error updating reminder title")
+                            let alertMessage = NSLocalizedString("An error occured while attempting to update the reminder", comment: "error updating reminder message")
+                            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+                            let actionTitle = NSLocalizedString("OK", comment: "ok action title")
+                            alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { _ in
+                                self.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                 }
             })
@@ -83,10 +94,14 @@ class ReminderListViewController: UITableViewController {
         let detailViewControler = storyboard.instantiateViewController(withIdentifier: Self.detailViewControllerIdentifier) as! ReminderDetailViewController
         let reminder = Reminder(id: UUID().uuidString, title: "New Reminder", dueDate: Date())
         detailViewControler.configure(with: reminder, isNew: true, addAction: { reminder in
-            if let index = self.reminderListDataSource?.add(reminder) {
-                self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                self.refreshProgressView()
-            }
+            self.reminderListDataSource?.add(reminder, completion: { index in
+                if let index = index {
+                    DispatchQueue.main.async {
+                        self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                        self.refreshProgressView()
+                    }
+                }
+            })
         })
         let navigationController = UINavigationController(rootViewController: detailViewControler)
         present(navigationController, animated: true, completion: nil)

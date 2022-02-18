@@ -83,11 +83,10 @@ class ReminderListDataSource: NSObject {
     }
     
     func update(_ reminder: Reminder, at row: Int, completion: (Bool) -> Void) {
-        saveReminder(reminder) { success in
-            if success {
-                let index  = index(for: row)
-                reminders[index] = reminder
-            }
+        saveReminder(reminder) { id in
+            let success = id != nil
+            let index = self.index(for: row)
+            reminders[index] = reminder
             completion(success)
         }
     }
@@ -96,9 +95,17 @@ class ReminderListDataSource: NSObject {
         return filteredReminders[row]
     }
     
-    func add(_ reminder: Reminder) -> Int? {
-        reminders.insert(reminder, at: 0)
-        return filteredReminders.firstIndex(where: {$0.id == reminder.id})
+    func add(_ reminder: Reminder, completion: (Int?) -> Void) {
+        saveReminder(reminder) { id in
+            if let id = id {
+                let reminder = Reminder(id: id, title: reminder.title, dueDate: reminder.dueDate, notes: reminder.notes, isComplete: reminder.isComplete)
+                reminders.insert(reminder, at: 0)
+                let index = filteredReminders.firstIndex { $0.id == id }
+                completion(index)
+            } else {
+                completion(nil)
+            }
+        }
     }
     
     func index(for filteredIndex: Int) -> Int {
@@ -110,9 +117,16 @@ class ReminderListDataSource: NSObject {
         return index
     }
     
-    func delete(at row: Int) {
-        let index = self.index(for: row)
-        reminders.remove(at: index)
+    func delete(at row: Int, completion: (Bool) -> Void) {
+        let reminder = self.reminder(at: row)
+        removeReminder(with: reminder.id) { success in
+            if success {
+                let index = self.index(for: row)
+                reminders.remove(at: index)
+            }
+            
+            completion(success)
+        }
     }
 }
 
@@ -146,13 +160,18 @@ extension ReminderListDataSource: UITableViewDataSource {
         guard editingStyle == .delete else {
             return
         }
-        delete(at: indexPath.row)
-        tableView.performBatchUpdates({
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }) { _ in
-            tableView.reloadData()
+        delete(at: indexPath.row) { success in
+            if success {
+                DispatchQueue.main.async {
+                    tableView.performBatchUpdates({
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }) { _ in
+                        tableView.reloadData()
+                    }
+                    self.reminderDeletedAction?()
+                }
+            }
         }
-        reminderDeletedAction?()
     }
 }
 
@@ -236,9 +255,9 @@ extension ReminderListDataSource {
         }
     }
     
-    private func saveReminder(_ reminder: Reminder, completion: (Bool) -> Void) {
+    private func saveReminder(_ reminder: Reminder, completion: (String?) -> Void) {
         guard isAvailable else {
-            completion(false)
+            completion(nil)
             return
         }
         
@@ -262,9 +281,9 @@ extension ReminderListDataSource {
             
             do {
                 try self.eventStore.save(ekReminder, commit: true)
-                completion(true)
+                completion(ekReminder.calendarItemIdentifier)
             } catch {
-                completion(false)
+                completion(nil)
             }
         }
     }
@@ -282,5 +301,25 @@ extension ReminderListDataSource {
               }
         
         completion(ekReminder)
+    }
+    
+    private func removeReminder(with id: String, completion: (Bool) -> Void) {
+        guard isAvailable else {
+            completion(false)
+            return
+        }
+        
+        readReminder(with: id) { ekReminder in
+            if let ekReminder = ekReminder {
+                do {
+                    try self.eventStore.remove(ekReminder, commit: true)
+                    completion(true)
+                } catch {
+                    completion(false)
+                }
+            } else {
+                completion(false)
+            }
+        }
     }
 }
