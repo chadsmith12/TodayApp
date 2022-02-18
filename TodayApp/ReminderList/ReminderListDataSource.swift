@@ -82,9 +82,14 @@ class ReminderListDataSource: NSObject {
         }
     }
     
-    func update(_ reminder: Reminder, at row: Int) {
-        let index  = index(for: row)
-        reminders[index] = reminder
+    func update(_ reminder: Reminder, at row: Int, completion: (Bool) -> Void) {
+        saveReminder(reminder) { success in
+            if success {
+                let index  = index(for: row)
+                reminders[index] = reminder
+            }
+            completion(success)
+        }
     }
     
     func reminder(at row: Int) -> Reminder {
@@ -127,9 +132,11 @@ extension ReminderListDataSource: UITableViewDataSource {
         cell.configure(title: reminder.title, dateText: dateText, isDone: reminder.isComplete) {
             var modifiedReminder = reminder
             modifiedReminder.isComplete.toggle()
-            self.update(modifiedReminder, at: indexPath.row)
-            tableView.reloadRows(at: [indexPath], with: .none)
-            self.reminderCompletedAction?(indexPath.row)
+            self.update(modifiedReminder, at: indexPath.row) { success in
+                if success {
+                    self.reminderCompletedAction?(indexPath.row)
+                }
+            }
         }
         
         return cell
@@ -227,5 +234,53 @@ extension ReminderListDataSource {
             
             self.remindersChangedAction?()
         }
+    }
+    
+    private func saveReminder(_ reminder: Reminder, completion: (Bool) -> Void) {
+        guard isAvailable else {
+            completion(false)
+            return
+        }
+        
+        readReminder(with: reminder.id) { ekReminder in
+            let ekReminder = ekReminder ?? EKReminder(eventStore: self.eventStore)
+            ekReminder.title = reminder.title
+            ekReminder.notes = reminder.notes
+            ekReminder.isCompleted = reminder.isComplete
+            ekReminder.calendar = self.eventStore.defaultCalendarForNewReminders()
+            ekReminder.alarms?.forEach { alarm in
+                if let absoluteDate = alarm.absoluteDate {
+                    let comparison = Locale.current.calendar.compare(reminder.dueDate, to: absoluteDate, toGranularity: .minute)
+                    if comparison != .orderedSame {
+                        ekReminder.removeAlarm(alarm)
+                    }
+                }
+            }
+            if !ekReminder.hasAlarms {
+                ekReminder.addAlarm(EKAlarm(absoluteDate: reminder.dueDate))
+            }
+            
+            do {
+                try self.eventStore.save(ekReminder, commit: true)
+                completion(true)
+            } catch {
+                completion(false)
+            }
+        }
+    }
+    
+    private func readReminder(with id: String, completion: (EKReminder?) -> Void) {
+        guard isAvailable else {
+            completion(nil)
+            return
+        }
+        
+        guard let calendarItem = eventStore.calendarItem(withIdentifier: id),
+              let ekReminder = calendarItem as? EKReminder else {
+                  completion(nil)
+                  return
+              }
+        
+        completion(ekReminder)
     }
 }
