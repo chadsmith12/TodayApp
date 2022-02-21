@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TodayAppShared
 
 class ReminderDetailViewController: UITableViewController {
     typealias ReminderChangeAction = (Reminder) -> Void

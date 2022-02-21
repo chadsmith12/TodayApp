@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TodayAppShared
 
 class ReminderDetailEditDataSource: NSObject  {
     typealias ReminderChangeAction = (Reminder) -> Void

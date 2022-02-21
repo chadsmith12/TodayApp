@@ -16,13 +16,48 @@
 		C760B59327AF641A004B9D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760B59127AF641A004B9D9E /* Main.storyboard */; };
 		C760B59527AF641C004B9D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760B59427AF641C004B9D9E /* Assets.xcassets */; };
 		C760B59827AF641C004B9D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760B59627AF641C004B9D9E /* LaunchScreen.storyboard */; };
-		C760B5A127AF6CB8004B9D9E /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5A027AF6CB8004B9D9E /* Reminder.swift */; };
 		C760B5A427AF8863004B9D9E /* ReminderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5A327AF8863004B9D9E /* ReminderListCell.swift */; };
 		C760B5A827B08837004B9D9E /* ReminderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5A727B08837004B9D9E /* ReminderDetailViewController.swift */; };
 		C760B5AA27B0C624004B9D9E /* ReminderListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5A927B0C624004B9D9E /* ReminderListDataSource.swift */; };
 		C760B5AC27B0D30E004B9D9E /* ReminderViewDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5AB27B0D30E004B9D9E /* ReminderViewDetailDataSource.swift */; };
 		C760B5AF27B1FFA5004B9D9E /* EditTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760B5AE27B1FFA5004B9D9E /* EditTitleCell.swift */; };
+		C78C261F27C3513000248AB2 /* TodayAppShared.h in Headers */ = {isa = PBXBuildFile; fileRef = C78C261E27C3513000248AB2 /* TodayAppShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C78C262227C3513000248AB2 /* TodayAppShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78C261C27C3513000248AB2 /* TodayAppShared.framework */; };
+		C78C262327C3513000248AB2 /* TodayAppShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C78C261C27C3513000248AB2 /* TodayAppShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C78C262A27C3514800248AB2 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C262927C3514800248AB2 /* Reminder.swift */; };
+		C78C262C27C3527800248AB2 /* TodayAppShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78C261C27C3513000248AB2 /* TodayAppShared.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C78C262027C3513000248AB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C760B58027AF641A004B9D9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C78C261B27C3513000248AB2;
+			remoteInfo = TodayAppShared;
+		};
+		C78C262D27C3527800248AB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C760B58027AF641A004B9D9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C78C261B27C3513000248AB2;
+			remoteInfo = TodayAppShared;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C78C262427C3513000248AB2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C78C262327C3513000248AB2 /* TodayAppShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C7512A8D27B21DD5003E40F7 /* EditDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateCell.swift; sourceTree = "<group>"; };
@@ -36,16 +71,27 @@
 		C760B59427AF641C004B9D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C760B59727AF641C004B9D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C760B59927AF641C004B9D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C760B5A027AF6CB8004B9D9E /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		C760B5A327AF8863004B9D9E /* ReminderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListCell.swift; sourceTree = "<group>"; };
 		C760B5A727B08837004B9D9E /* ReminderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailViewController.swift; sourceTree = "<group>"; };
 		C760B5A927B0C624004B9D9E /* ReminderListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListDataSource.swift; sourceTree = "<group>"; };
 		C760B5AB27B0D30E004B9D9E /* ReminderViewDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewDetailDataSource.swift; sourceTree = "<group>"; };
 		C760B5AE27B1FFA5004B9D9E /* EditTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleCell.swift; sourceTree = "<group>"; };
+		C78C261C27C3513000248AB2 /* TodayAppShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TodayAppShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C78C261E27C3513000248AB2 /* TodayAppShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayAppShared.h; sourceTree = "<group>"; };
+		C78C262927C3514800248AB2 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C760B58527AF641A004B9D9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78C262227C3513000248AB2 /* TodayAppShared.framework in Frameworks */,
+				C78C262C27C3527800248AB2 /* TodayAppShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C78C261927C3513000248AB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				C760B58A27AF641A004B9D9E /* TodayApp */,
+				C78C261D27C3513000248AB2 /* TodayAppShared */,
 				C760B58927AF641A004B9D9E /* Products */,
+				C78C262B27C3527800248AB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C760B58827AF641A004B9D9E /* TodayApp.app */,
+				C78C261C27C3513000248AB2 /* TodayAppShared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,7 +125,6 @@
 			children = (
 				C760B5A627B087C9004B9D9E /* ReminderDetail */,
 				C760B5A527AF9EE3004B9D9E /* ReminderList */,
-				C760B59F27AF6C9A004B9D9E /* Models */,
 				C760B58B27AF641A004B9D9E /* AppDelegate.swift */,
 				C760B58D27AF641A004B9D9E /* SceneDelegate.swift */,
 				C760B59427AF641C004B9D9E /* Assets.xcassets */,
@@ -84,14 +132,6 @@
 				C760B59927AF641C004B9D9E /* Info.plist */,
 			);
 			path = TodayApp;
-			sourceTree = "<group>";
-		};
-		C760B59F27AF6C9A004B9D9E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C760B5A027AF6CB8004B9D9E /* Reminder.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		C760B5A227AF87EC004B9D9E /* ViewCells */ = {
@@ -134,7 +174,42 @@
 			path = ViewCells;
 			sourceTree = "<group>";
 		};
+		C78C261D27C3513000248AB2 /* TodayAppShared */ = {
+			isa = PBXGroup;
+			children = (
+				C78C262827C3513B00248AB2 /* Models */,
+				C78C261E27C3513000248AB2 /* TodayAppShared.h */,
+			);
+			path = TodayAppShared;
+			sourceTree = "<group>";
+		};
+		C78C262827C3513B00248AB2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C78C262927C3514800248AB2 /* Reminder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C78C262B27C3527800248AB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C78C261727C3513000248AB2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78C261F27C3513000248AB2 /* TodayAppShared.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C760B58727AF641A004B9D9E /* TodayApp */ = {
@@ -144,15 +219,36 @@
 				C760B58427AF641A004B9D9E /* Sources */,
 				C760B58527AF641A004B9D9E /* Frameworks */,
 				C760B58627AF641A004B9D9E /* Resources */,
+				C78C262427C3513000248AB2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C78C262127C3513000248AB2 /* PBXTargetDependency */,
+				C78C262E27C3527800248AB2 /* PBXTargetDependency */,
 			);
 			name = TodayApp;
 			productName = TodayApp;
 			productReference = C760B58827AF641A004B9D9E /* TodayApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C78C261B27C3513000248AB2 /* TodayAppShared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C78C262727C3513000248AB2 /* Build configuration list for PBXNativeTarget "TodayAppShared" */;
+			buildPhases = (
+				C78C261727C3513000248AB2 /* Headers */,
+				C78C261827C3513000248AB2 /* Sources */,
+				C78C261927C3513000248AB2 /* Frameworks */,
+				C78C261A27C3513000248AB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayAppShared;
+			productName = TodayAppShared;
+			productReference = C78C261C27C3513000248AB2 /* TodayAppShared.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,6 +262,10 @@
 				TargetAttributes = {
 					C760B58727AF641A004B9D9E = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					C78C261B27C3513000248AB2 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -183,6 +283,7 @@
 			projectRoot = "";
 			targets = (
 				C760B58727AF641A004B9D9E /* TodayApp */,
+				C78C261B27C3513000248AB2 /* TodayAppShared */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +296,13 @@
 				C760B59827AF641C004B9D9E /* LaunchScreen.storyboard in Resources */,
 				C760B59527AF641C004B9D9E /* Assets.xcassets in Resources */,
 				C760B59327AF641A004B9D9E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C78C261A27C3513000248AB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,13 +322,33 @@
 				C760B58E27AF641A004B9D9E /* SceneDelegate.swift in Sources */,
 				C7512A9027B21E2F003E40F7 /* EditNotesCell.swift in Sources */,
 				C7512A8E27B21DD5003E40F7 /* EditDateCell.swift in Sources */,
-				C760B5A127AF6CB8004B9D9E /* Reminder.swift in Sources */,
 				C760B5AA27B0C624004B9D9E /* ReminderListDataSource.swift in Sources */,
 				C7512A9227B221BE003E40F7 /* ReminderDetailEditDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C78C261827C3513000248AB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78C262A27C3514800248AB2 /* Reminder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C78C262127C3513000248AB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C78C261B27C3513000248AB2 /* TodayAppShared */;
+			targetProxy = C78C262027C3513000248AB2 /* PBXContainerItemProxy */;
+		};
+		C78C262E27C3527800248AB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C78C261B27C3513000248AB2 /* TodayAppShared */;
+			targetProxy = C78C262D27C3527800248AB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C760B59127AF641A004B9D9E /* Main.storyboard */ = {
@@ -361,6 +489,7 @@
 		C760B59D27AF641C004B9D9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,6 +519,7 @@
 		C760B59E27AF641C004B9D9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -416,6 +546,69 @@
 			};
 			name = Release;
 		};
+		C78C262527C3513000248AB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VD8R79VPP9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventuallygames.TodayAppShared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C78C262627C3513000248AB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VD8R79VPP9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventuallygames.TodayAppShared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -433,6 +626,15 @@
 			buildConfigurations = (
 				C760B59D27AF641C004B9D9E /* Debug */,
 				C760B59E27AF641C004B9D9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C78C262727C3513000248AB2 /* Build configuration list for PBXNativeTarget "TodayAppShared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C78C262527C3513000248AB2 /* Debug */,
+				C78C262627C3513000248AB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

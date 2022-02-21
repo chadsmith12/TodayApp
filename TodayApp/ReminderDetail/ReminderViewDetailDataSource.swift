@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TodayAppShared
 
 class ReminderViewDetailDataSource: NSObject {
     enum ReminderRow: Int, CaseIterable {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TodayAppShared
 
 class ReminderListViewController: UITableViewController {
     private static let showReminderDetailSegueIdentifier = "ShowReminderDetailSegue"
