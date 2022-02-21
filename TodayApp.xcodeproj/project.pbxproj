@@ -29,6 +29,8 @@
 		C78C263527C3607B00248AB2 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78C263427C3607B00248AB2 /* Intents.framework */; };
 		C78C263827C3607C00248AB2 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C263727C3607C00248AB2 /* IntentHandler.swift */; };
 		C78C263C27C3607C00248AB2 /* TodayRemindersExtensions.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C78C263327C3607B00248AB2 /* TodayRemindersExtensions.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C78C264227C3628100248AB2 /* Reminder+DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C264127C3628100248AB2 /* Reminder+DateFormatting.swift */; };
+		C78C264427C3633200248AB2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C264327C3633200248AB2 /* Filter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		C78C263427C3607B00248AB2 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		C78C263727C3607C00248AB2 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		C78C263927C3607C00248AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C78C264127C3628100248AB2 /* Reminder+DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+DateFormatting.swift"; sourceTree = "<group>"; };
+		C78C264327C3633200248AB2 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				C78C262927C3514800248AB2 /* Reminder.swift */,
+				C78C264127C3628100248AB2 /* Reminder+DateFormatting.swift */,
+				C78C264327C3633200248AB2 /* Filter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,6 +412,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78C264227C3628100248AB2 /* Reminder+DateFormatting.swift in Sources */,
+				C78C264427C3633200248AB2 /* Filter.swift in Sources */,
 				C78C262A27C3514800248AB2 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

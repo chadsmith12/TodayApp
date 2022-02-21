@@ -14,8 +14,8 @@ class ReminderListViewController: UITableViewController {
     private static let detailViewControllerIdentifier = "ReminderDetailViewController"
     
     private var reminderListDataSource: ReminderListDataSource?
-    private var filter: ReminderListDataSource.Filter {
-        return ReminderListDataSource.Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .today
+    private var filter: Filter {
+        return Filter(rawValue: filterSegmentedControl.selectedSegmentIndex) ?? .today
     }
     
     @IBOutlet var filterSegmentedControl: UISegmentedControl!
@@ -155,7 +155,7 @@ class ReminderListViewController: UITableViewController {
     }
 }
 
-fileprivate extension ReminderListDataSource.Filter {
+fileprivate extension Filter {
     private var gradientBeginColor: UIColor? {
         switch self {
         case .today:
