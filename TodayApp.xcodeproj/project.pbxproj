@@ -26,6 +26,9 @@
 		C78C262327C3513000248AB2 /* TodayAppShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C78C261C27C3513000248AB2 /* TodayAppShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C78C262A27C3514800248AB2 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C262927C3514800248AB2 /* Reminder.swift */; };
 		C78C262C27C3527800248AB2 /* TodayAppShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78C261C27C3513000248AB2 /* TodayAppShared.framework */; };
+		C78C263527C3607B00248AB2 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78C263427C3607B00248AB2 /* Intents.framework */; };
+		C78C263827C3607C00248AB2 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C263727C3607C00248AB2 /* IntentHandler.swift */; };
+		C78C263C27C3607C00248AB2 /* TodayRemindersExtensions.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C78C263327C3607B00248AB2 /* TodayRemindersExtensions.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,13 @@
 			remoteGlobalIDString = C78C261B27C3513000248AB2;
 			remoteInfo = TodayAppShared;
 		};
+		C78C263A27C3607C00248AB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C760B58027AF641A004B9D9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C78C263227C3607B00248AB2;
+			remoteInfo = TodayRemindersExtensions;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +65,17 @@
 				C78C262327C3513000248AB2 /* TodayAppShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C78C264027C3607C00248AB2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C78C263C27C3607C00248AB2 /* TodayRemindersExtensions.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -79,6 +100,10 @@
 		C78C261C27C3513000248AB2 /* TodayAppShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TodayAppShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C78C261E27C3513000248AB2 /* TodayAppShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayAppShared.h; sourceTree = "<group>"; };
 		C78C262927C3514800248AB2 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		C78C263327C3607B00248AB2 /* TodayRemindersExtensions.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayRemindersExtensions.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C78C263427C3607B00248AB2 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		C78C263727C3607C00248AB2 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		C78C263927C3607C00248AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +123,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C78C263027C3607B00248AB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78C263527C3607B00248AB2 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -106,6 +139,7 @@
 			children = (
 				C760B58A27AF641A004B9D9E /* TodayApp */,
 				C78C261D27C3513000248AB2 /* TodayAppShared */,
+				C78C263627C3607B00248AB2 /* TodayRemindersExtensions */,
 				C760B58927AF641A004B9D9E /* Products */,
 				C78C262B27C3527800248AB2 /* Frameworks */,
 			);
@@ -116,6 +150,7 @@
 			children = (
 				C760B58827AF641A004B9D9E /* TodayApp.app */,
 				C78C261C27C3513000248AB2 /* TodayAppShared.framework */,
+				C78C263327C3607B00248AB2 /* TodayRemindersExtensions.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,8 +229,18 @@
 		C78C262B27C3527800248AB2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C78C263427C3607B00248AB2 /* Intents.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C78C263627C3607B00248AB2 /* TodayRemindersExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C78C263727C3607C00248AB2 /* IntentHandler.swift */,
+				C78C263927C3607C00248AB2 /* Info.plist */,
+			);
+			path = TodayRemindersExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,12 +265,14 @@
 				C760B58527AF641A004B9D9E /* Frameworks */,
 				C760B58627AF641A004B9D9E /* Resources */,
 				C78C262427C3513000248AB2 /* Embed Frameworks */,
+				C78C264027C3607C00248AB2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C78C262127C3513000248AB2 /* PBXTargetDependency */,
 				C78C262E27C3527800248AB2 /* PBXTargetDependency */,
+				C78C263B27C3607C00248AB2 /* PBXTargetDependency */,
 			);
 			name = TodayApp;
 			productName = TodayApp;
@@ -250,6 +297,23 @@
 			productReference = C78C261C27C3513000248AB2 /* TodayAppShared.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C78C263227C3607B00248AB2 /* TodayRemindersExtensions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C78C263D27C3607C00248AB2 /* Build configuration list for PBXNativeTarget "TodayRemindersExtensions" */;
+			buildPhases = (
+				C78C262F27C3607B00248AB2 /* Sources */,
+				C78C263027C3607B00248AB2 /* Frameworks */,
+				C78C263127C3607B00248AB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayRemindersExtensions;
+			productName = TodayRemindersExtensions;
+			productReference = C78C263327C3607B00248AB2 /* TodayRemindersExtensions.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -266,6 +330,9 @@
 					C78C261B27C3513000248AB2 = {
 						CreatedOnToolsVersion = 13.2.1;
 						LastSwiftMigration = 1320;
+					};
+					C78C263227C3607B00248AB2 = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
@@ -284,6 +351,7 @@
 			targets = (
 				C760B58727AF641A004B9D9E /* TodayApp */,
 				C78C261B27C3513000248AB2 /* TodayAppShared */,
+				C78C263227C3607B00248AB2 /* TodayRemindersExtensions */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +368,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C78C261A27C3513000248AB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C78C263127C3607B00248AB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,6 +410,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C78C262F27C3607B00248AB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78C263827C3607C00248AB2 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -347,6 +430,11 @@
 			isa = PBXTargetDependency;
 			target = C78C261B27C3513000248AB2 /* TodayAppShared */;
 			targetProxy = C78C262D27C3527800248AB2 /* PBXContainerItemProxy */;
+		};
+		C78C263B27C3607C00248AB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C78C263227C3607B00248AB2 /* TodayRemindersExtensions */;
+			targetProxy = C78C263A27C3607C00248AB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -609,6 +697,56 @@
 			};
 			name = Release;
 		};
+		C78C263E27C3607C00248AB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VD8R79VPP9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayRemindersExtensions/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodayRemindersExtensions;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventuallygames.TodayApp.TodayRemindersExtensions;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C78C263F27C3607C00248AB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VD8R79VPP9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayRemindersExtensions/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodayRemindersExtensions;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventuallygames.TodayApp.TodayRemindersExtensions;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -635,6 +773,15 @@
 			buildConfigurations = (
 				C78C262527C3513000248AB2 /* Debug */,
 				C78C262627C3513000248AB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C78C263D27C3607C00248AB2 /* Build configuration list for PBXNativeTarget "TodayRemindersExtensions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C78C263E27C3607C00248AB2 /* Debug */,
+				C78C263F27C3607C00248AB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
